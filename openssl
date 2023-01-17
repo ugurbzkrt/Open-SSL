@@ -1,0 +1,24 @@
+OpenSSL kullanarak ücretsiz bir sertifika oluşturmak için aşağıdaki adımları izleyebilirsiniz:
+
+OpenSSL kurulumunuzun yolunu komut satırına yazın ve enter tuşuna basın.
+
+Açılır pencerede, aşağıdaki komutu yazın ve enter tuşuna basın:
+
+openssl genrsa -out privatekey.pem 2048
+
+Aynı pencerede, aşağıdaki komutu yazın ve enter tuşuna basın:
+
+openssl req -new -key privatekey.pem -out csr.pem
+
+Sertifika istek formunu doldurun. Bu işlem sertifika için gerekli olan bilgileri isteyecektir.
+
+Aynı pencerede, aşağıdaki komutu yazın ve enter tuşuna basın:
+
+openssl x509 -req -days 365 -in csr.pem -signkey privatekey.pem -out publiccert.pem
+
+Bu adımları izlediğinizde, privatekey.pem dosyasının özel anahtarınızı, publiccert.pem dosyasının ise sertifikanızı içerdiğini görürsünüz.
+
+- PEM dosyasını CRT olarak değiştirmek
+
+openssl x509 -outform der -in certificate.pem -out certificate.crt
+
