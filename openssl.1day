@@ -1,0 +1,8 @@
+Öncelikle, komut satırına girin ve openssl komutunu kullanarak bir anahtar oluşturun. Örneğin, "openssl genrsa -out example.key 2048" komutunu kullanabilirsiniz.
+
+Oluşturduğunuz anahtarı kullanarak bir CSR (Certificate Signing Request) oluşturun. Örneğin, "openssl req -new -key example.key -out example.csr" komutunu kullanabilirsiniz. Bu komut, sertifika için gerekli olan bilgileri sizden isteyecektir.
+
+Oluşturduğunuz CSR dosyasını kullanarak bir sertifika oluşturun. Örneğin, "openssl x509 -req -days 1 -in example.csr -signkey example.key -out example.crt" komutunu kullanabilirsiniz. Bu komut, sertifikanızı 1 gün geçerli olacak şekilde oluşturacaktır.
+
+Oluşturduğunuz sertifika ve anahtar dosyalarını web sunucunuzda yapılandırın.
+
